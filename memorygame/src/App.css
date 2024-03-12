@@ -9,9 +9,9 @@ h1{
   font-weight: 700;
 
 }
-App{
-  max-width: 860px;
-  margin: 40px auto;
+.App{
+  max-width: 100%;
+  margin: 20 px auto;
 }
 button{
   background:none;
@@ -30,12 +30,11 @@ button:hover{
 }
 .logo {
   width: 50%;
- 
-
 }
 .card-grid {
-  margin-top: 40px;
+  
+  margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: repeat(4, 0.5fr);
+  grid-gap: 30px;
 }

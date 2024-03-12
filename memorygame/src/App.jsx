@@ -3,9 +3,11 @@ import './App.css'
 import SingleCard from './components/SingleCard'
 
 const cardImages = [
-  {"src":"./src/assets/Kari.jpg", "name":"Kari",matched: false}, {"src":"./src/assets/RyanLahlouC.png", "name":"RyanLahlouC",matched: false},
+  {"src":"./src/assets/Kari.jpg", "name":"Kari",matched: false}, 
+  {"src":"./src/assets/RyanLahlouC.png", "name":"RyanLahlouC",matched: false},
   {"src":"./src/assets/gabriella2.jpg", "name":"Gabriella",matched: false},
-  {"src":"./src/assets/Zane.jpg", "name":"Zane",matched: false}, {"src":"./src/assets/vinayak.jpg", "name":"Vinayak",matched: false},
+  {"src":"./src/assets/Zane.jpg", "name":"Zane",matched: false}, 
+  {"src":"./src/assets/vinayak.jpg", "name":"Vinayak",matched: false},
   {"src":"./src/assets/dimmer.png", "name":"dimmer",matched: false},
   {"src":"./src/assets/deekshitaVerma.png", "name":"deekshitaVerma",matched: false},
   {"src":"./src/assets/cecilia2.png", "name":"cecilia2",matched: false},
@@ -25,6 +27,8 @@ const shuffleCards = () => {
   const shuffledCards = [... cardImages,...cardImages]
     .sort(() => Math.random() - 0.5)
     .map((card) => ({...card, id: Math.random()}))
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
 }
@@ -64,28 +68,32 @@ const resetTurn = () => {
   setTurns(prevTurns => prevTurns + 1)
   setDisabled(false)
 }
-  return (
+useEffect(() => {},[])
+  shuffleCards()
+
+return (
     
-    <div className = "App">
-      <img className = "logo" src = "./src/assets/hackweeklogo.jpg" alt = "card front"/>
-      <h1>Global Hack Memory Game</h1>  
-      <button onClick ={shuffleCards}> Start Game</button>
+  <div className = "App">
+    <img className = "logo" src = "./src/assets/hackweeklogo.jpg" alt = "card front"/>
+    <h1>Global Hack Memory Game</h1>  
+    <button onClick ={shuffleCards}> Start Game</button>
       
-      <div className ="card-grid">
-        {cards.map(card => (
-          <SingleCard 
-          key = {card.id} 
-          card = {card}
-          handleChoice = {handleChoice}
-          flipped = { card === choiceOne || card === choiceTwo || card.matched}
-          disabled = {disabled}
-          />
+    <div className ="card-grid">
+      {cards.map(card => (
+      <SingleCard 
+        key = {card.id} 
+        card = {card}
+        handleChoice = {handleChoice}
+        flipped = { card === choiceOne || card === choiceTwo || card.matched}
+        disabled = {disabled}
+        />
         
-          ))
-            }
+        ))
+        }
           
-          </div>
-      </div>
+        </div>
+        <p>Turns: {turns}</p>
+    </div>
   
   )
 }
