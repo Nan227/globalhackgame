@@ -68,8 +68,9 @@ const resetTurn = () => {
   setTurns(prevTurns => prevTurns + 1)
   setDisabled(false)
 }
-useEffect(() => {},[])
+useEffect(() => {
   shuffleCards()
+}, [])
 
 return (
     
