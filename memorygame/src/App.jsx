@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import SingleCard from './components/SingleCard'
-//import { Header as Logo } from './assets/hackweeklogo.jpg';
+
 const cardImages = [
-  {"src":"./src/assets/Kari.jpg", "name":"Kari"},
-  {"src":"./src/assets/RyanLahlouC.png", "name":"RyanLahlouC"},
-  {"src":"./src/assets/gabriella2.jpg", "name":"Gabriella"},
-  {"src":"./src/assets/Zane.jpg", "name":"Zane"},
-  {"src":"./src/assets/vinayak.jpg", "name":"Vinayak"},
-  {"src":"./src/assets/dimmer.png", "name":"dimmer"},
-  {"src":"./src/assets/deekshitaVerma.png", "name":"deekshitaVerma"},
-  {"src":"./src/assets/cecilia2.png", "name":"cecilia2"},
-  {"src":"./src/assets/david.png", "name":"devid"},
-  {"src":"./src/assets/RyanLay.png", "name":"RyanLay"},
+  {"src":"./src/assets/Kari.jpg", "name":"Kari",matched: false}, {"src":"./src/assets/RyanLahlouC.png", "name":"RyanLahlouC",matched: false},
+  {"src":"./src/assets/gabriella2.jpg", "name":"Gabriella",matched: false},
+  {"src":"./src/assets/Zane.jpg", "name":"Zane",matched: false}, {"src":"./src/assets/vinayak.jpg", "name":"Vinayak",matched: false},
+  {"src":"./src/assets/dimmer.png", "name":"dimmer",matched: false},
+  {"src":"./src/assets/deekshitaVerma.png", "name":"deekshitaVerma",matched: false},
+  {"src":"./src/assets/cecilia2.png", "name":"cecilia2",matched: false},
+  {"src":"./src/assets/david.png", "name":"devid",matched: false},
+  {"src":"./src/assets/RyanLay.png", "name":"RyanLay",matched: false},
 ]
 
 function App() {
@@ -36,20 +34,30 @@ const handleChoice = (card) => {
 useEffect(() => {
   if (choiceOne && choiceTwo) {
     if (choiceOne.name === choiceTwo.name) {
-      console.log('match')
+      setCards((prevCards) => {
+        return prevCards.map((card) => {
+          if (card.name === choiceOne.name) {
+            return {...card, matched: true}
+          }else {
+          return card
+          }
+        })
+      })
       resetTurn()
     }else {
-      console.log('no match')
+    
       resetTurn()
     }
   }
 },[choiceOne, choiceTwo])
 
+console.log(card)
+
 //reset choices & increase turns
 const resetTurn = () => {
   setChoiceOne(null)
   setChoiceTwo(null)
-  setTurns(preyTurns => preyTurns + 1)
+  setTurns(prevTurns => prevTurns + 1)
 }
   return (
     
@@ -64,6 +72,7 @@ const resetTurn = () => {
           key = {card.id} 
           card = {card}
           handleChoice = {handleChoice}
+          flipped = {choiceOne === card || choiceTwo === card || card.matched}
           />
         
           ))
