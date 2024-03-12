@@ -34,9 +34,9 @@ const handleChoice = (card) => {
 }
 //compare 2 selected cards
 useEffect(() => {
-  setDisabled(true)
+  
   if (choiceOne && choiceTwo) {
-
+    setDisabled(true)
     if (choiceOne.name === choiceTwo.name) {
       setCards((prevCards) => {
         return prevCards.map((card) => {
@@ -55,7 +55,7 @@ useEffect(() => {
   }
 },[choiceOne, choiceTwo])
 
-console.log(card)
+
 
 //reset choices & increase turns
 const resetTurn = () => {
@@ -72,7 +72,7 @@ const resetTurn = () => {
       <button onClick ={shuffleCards}> Start Game</button>
       
       <div className ="card-grid">
-        {cards.map((card) => (
+        {cards.map(card => (
           <SingleCard 
           key = {card.id} 
           card = {card}
