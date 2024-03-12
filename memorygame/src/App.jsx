@@ -1,18 +1,17 @@
 import { useState } from 'react'
-
 import './App.css'
 //import { Header as Logo } from './assets/hackweeklogo.jpg';
 const cardImages = [
-  {"src":"./assets/Kari.jpg", "name":"Kari"},
-  {"src":"./assets/RyanLahlouC.png", "name":"RyanLahlouC"},
-  {"src":"./assets/gabriella2.jpg", "name":"Gabriella"},
-  {"src":"./assets/RyanLay.jpg", "name":"RyanLay"},
-  {"src":"./assets/Zane.jpg", "name":"Zane"},
-  {"src":"./assets/vinayak.jpg", "name":"Vinayak"},
-  {"src":"./assets/dimmer.png", "name":"dimmer"},
-  {"src":"./assets/deekshitaVerma.png", "name":"deekshitaVerma"},
-  {"src":"./assets/celila2.png", "name":"celila2"},
-  {"src":"./assets/david.png", "name":"devid"},
+  {"src":"./src/assets/Kari.jpg", "name":"Kari"},
+  {"src":"./src/assets/RyanLahlouC.png", "name":"RyanLahlouC"},
+  {"src":"./src/assets/gabriella2.jpg", "name":"Gabriella"},
+  {"src":"./src/assets/Zane.jpg", "name":"Zane"},
+  {"src":"./src/assets/vinayak.jpg", "name":"Vinayak"},
+  {"src":"./src/assets/dimmer.png", "name":"dimmer"},
+  {"src":"./src/assets/deekshitaVerma.png", "name":"deekshitaVerma"},
+  {"src":"./src/assets/cecilia2.png", "name":"cecilia2"},
+  {"src":"./src/assets/david.png", "name":"devid"},
+  {"src":"./src/assets/RyanLay.png", "name":"RyanLay"},
 ]
 
 function App() {
@@ -40,7 +39,7 @@ console.log(cards, turns)
           <div className = "card" key = {card.id} >
           <div>
           <img className = "front" src ={card.src} alt = "card front"/>
-          <img className = "back" src = "./assets/ghlogo.jpg" alt = "card back"/>
+          <img className = "back" src = "./src/assets/backcard.jpg" alt = "card back"/>
           </div>
           
           

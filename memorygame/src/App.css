@@ -1,10 +1,4 @@
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
@@ -14,7 +8,7 @@ h1{
   font-weight: 700;
 
 }
-App{
+App {
   max-width: 860px;
   margin: 40px auto;
 }
@@ -27,7 +21,7 @@ button{
   font-weight:bold;
   cursor: pointer;
   text-align: center;
-  font-size: 1px;
+  font-size: 10px;
 }
 button:hover{
   background: rgb(100, 39, 242);
