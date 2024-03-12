@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
+import SingleCard from './components/SingleCard'
 //import { Header as Logo } from './assets/hackweeklogo.jpg';
 const cardImages = [
   {"src":"./src/assets/Kari.jpg", "name":"Kari"},
@@ -17,6 +18,8 @@ const cardImages = [
 function App() {
   const [cards, setCards] = useState([])
   const[turns, setTurns] = useState(0)
+  const[choiceOne, setChoiceOne] = useState(null)
+  const[choiceTwo, setChoiceTwo] = useState(null)
   // shuffle cards
 const shuffleCards = () => {
   const shuffledCards = [... cardImages,...cardImages]
@@ -25,25 +28,44 @@ const shuffleCards = () => {
     setCards(shuffledCards)
     setTurns(0)
 }
-console.log(cards, turns)
+// handle card choice
+const handleChoice = (card) => {
+  choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+}
+//compare 2 selected cards
+useEffect(() => {
+  if (choiceOne && choiceTwo) {
+    if (choiceOne.name === choiceTwo.name) {
+      console.log('match')
+      resetTurn()
+    }else {
+      console.log('no match')
+      resetTurn()
+    }
+  }
+},[choiceOne, choiceTwo])
 
+//reset choices & increase turns
+const resetTurn = () => {
+  setChoiceOne(null)
+  setChoiceTwo(null)
+  setTurns(preyTurns => preyTurns + 1)
+}
   return (
     
     <div className = "App">
-        
+      <img className = "logo" src = "./src/assets/hackweeklogo.jpg" alt = "card front"/>
       <h1>Global Hack Memory Game</h1>  
       <button onClick ={shuffleCards}> Start Game</button>
       
       <div className ="card-grid">
-        {cards.map(card => (
-          <div className = "card" key = {card.id} >
-          <div>
-          <img className = "front" src ={card.src} alt = "card front"/>
-          <img className = "back" src = "./src/assets/backcard.jpg" alt = "card back"/>
-          </div>
-          
-          
-          </div>
+        {cards.map((card) => (
+          <SingleCard 
+          key = {card.id} 
+          card = {card}
+          handleChoice = {handleChoice}
+          />
+        
           ))
             }
           
