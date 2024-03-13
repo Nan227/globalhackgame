@@ -1,7 +1,9 @@
 # Globalhackgame MLH Game Week 2024
 
 ## Inspiration
-The inspiration for the MLH Memory Game project came from the desire to learn about game development using React and Vite while expressing gratitude to the MLH coach team for their invaluable support and the video demo below ( click at the picture )⬇️
+The inspiration for the MLH Memory Game project came from the desire to learn about game development using React and Vite while expressing gratitude to the MLH coach team for their invaluable support 
+
+## Demo (click on the picture)⬇️
 
 [![globalhackgame MLH Game Week](https://img.youtube.com/vi/zhDPLAKZIY8/0.jpg)](https://www.youtube.com/watch?v=zhDPLAKZIY8)
 
