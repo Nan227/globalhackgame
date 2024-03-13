@@ -1,8 +1,9 @@
-# globalhackgame
-## Video Walkthrough
-![MLH Memory Game]((https://youtu.be/zhDPLAKZIY8)
+# Globalhackgame MLH Game Week 2024
+
 ## Inspiration
-The inspiration for the MLH Memory Game project came from the desire to learn about game development using React and Vite while expressing gratitude to the MLH coach team for their invaluable support and guidance.
+The inspiration for the MLH Memory Game project came from the desire to learn about game development using React and Vite while expressing gratitude to the MLH coach team for their invaluable support and 
+
+[![globalhackgame MLH Game Week](https://img.youtube.com/vi/zhDPLAKZIY8/0.jpg)](https://www.youtube.com/watch?v=zhDPLAKZIY8)
 
 ## What it does
 The MLH Memory Game is a fun and interactive web game where players match pairs of pictures of MLH coaches within a grid. It serves as a way to hone cognitive skills while paying tribute to the mentors who have contributed to the learning journey.
